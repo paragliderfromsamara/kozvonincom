@@ -1,0 +1,44 @@
+<h1>Добавить фотографии</h1>
+
+<%= form_for(:photos) do |f| %>
+	<div class="dropzone" id = "drop">
+
+	</div>
+<% end %>
+<div id = "edit_photos_wrapper">
+	<table id = "edit_photos_container">
+	<% ph = Photo.all %>
+		<% ph.each do |p| %>
+			
+				<tbody id = "ph_<%=p.id%>">
+					<tr>					
+						<td>
+							<img src = "<%= p.link.medium_sq %>" />
+							<br /><br />
+							<%= link_to "<i class = 'fi-trash fi-large rmv-photo-but'></i>".html_safe, p, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить фото?'}, remote: true, class: "ph-rmv"%><a class = 'ph-del' ></a>
+						</td>
+						<td class = "photo-field-col">
+							<%= form_for(p, remote: true, html:{class: "photo-form"}) do |pF|%>
+								<%= pF.hidden_field :tag_names, value: p.tags_in_scobes, id: "tag_names" %>
+								<%= pF.text_field :name, placeholder: "Название фото", value: p.name %>
+								<%= pF.text_area :description, placeholder: "Описание фото", value: p.description %>
+								<input type="text" id = "new_tag_field" />
+								<ul id = "tag_names_list">
+									<% if p.photo_tag_references != [] %>
+										<% p.photo_tag_references.each do |r| %>
+											<li><span><%= r.photo_tag.name %> <a><i class = "fi-x fi-medium"></i></a></span></li>
+										<% end %>
+									<% end %>
+								</ul>
+								<div class = "photo-notice">
+									<span style = "display:none;" class = "success label">Фото успешно обновлено</span>
+									<span style = "display:none;" class = "alert label">Не удалось обновить фото</span>
+								</div>
+							<% end %>
+						</td>
+					</tr>
+				</tbody>
+		<% end %>
+	</table>
+</div>
+<%= link_to 'Back', photos_path %>

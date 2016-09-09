@@ -1,0 +1,25 @@
+<%albs = @albums.nil? ? Album.where(is_draft: false).order("created_at DESC").limit(6) : @albums%>
+<%i=0%>
+<div class="row">
+    <%if !albs.blank? %>
+    <%albs.each do |a|%>
+        <div class = 'small-12 medium-6 columns'>
+            <%if !a.photos.first.nil?%>
+                <a href = '<%= album_path(a) %>'> 
+                <div class = 'album-box-thumb float-center' style = 'background-image:url(<%=a.photos.first.link.large_sq%>);' title = '<%= a.loc_name(cur_locale)%>'>
+                    <div class = 'black-wr'></div>
+                    <div class = 'a-block-caption'>
+                        <p class = 'float-center'><%= truncate a.loc_name(cur_locale), length: 13 %></p>
+                    </div>
+                </div>
+               </a>
+            <%end%>
+        </div>
+    <%end%>
+    <%else%>
+        <div class = 'small-12 columns'>
+            <%= t :no_albums_in_list %>
+        </div>
+    <%end%>
+</div>
+

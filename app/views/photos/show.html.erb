@@ -1,0 +1,48 @@
+<div id = "photo-show-field">
+    <% if @photos.length > 1%>
+        <%= photo_prev.html_safe %>
+        <%= photo_next.html_safe %>
+    <%end%>
+    <div class = 'row small-up-1'>
+        <div class = 'column float-center'>
+            <%= image_tag @photo.link.large %>
+        </div>
+    </div>
+</div>
+<% if @photos.length > 1%>
+<div id = 'photoPagination'>
+    <div class = 'row'>
+    	<div class = 'small-12 columns' >
+            <div id = 'paginationLine'>
+        		<div class = 'ph-arrows ph-arr-left ph-h'></div>
+                    <%= photo_pagination.html_safe %>
+                <div class = 'ph-arrows ph-arr-right ph-h'></div>
+            </div>
+    	</div>
+    </div>
+</div>
+<%end%>
+<div class = 'row tb-pad-m'>
+    <div class = 'small-12 medium-7 columns'>
+        <h3><i class = 'fi-info'></i> <%= t(".main_info") %></h3>
+        <% if !@photo.album.nil?%>
+            <%= t(:album_word) %> <%= link_to @photo.album.loc_name(cur_locale), @photo.album %> 
+            <% if !@photo.category.nil?%>
+                <br />
+                <%= t(:category_word) %> <%= link_to @photo.category.loc_name(cur_locale), @photo.category %>
+            <%end%>
+        <%end%>
+
+    </div>
+    <div class = 'small-12 medium-5 columns'>
+       <h3><i class = 'fi-pricetag-multiple'></i> <%= t('.tags') %></h3>
+       <%=tags_list_in_photo_show.html_safe%>
+    </div>
+</div>
+<div class = 'row tb-pad-m'>
+    <div class = 'small-12 columns'>
+        <!--<%= link_to 'Edit', edit_photo_path(@photo) %> |
+        <%= link_to 'Back', photos_path %> -->
+    </div>
+</div>
+

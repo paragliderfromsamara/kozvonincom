@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Photo Tags</h1>
+
+<% if @photo_tags != [] %>
+	<div>
+		<%= photoTagTabs.html_safe %>
+	</div>
+<% end %>
+<div class = "tagPhotosField">
+	<% if @photos != [] %>
+		<%= render "photos/type_square" %>
+	<% end %>
+</div>
+<br>
+
+
+<%= link_to 'New Photo tag', new_photo_tag_path %>

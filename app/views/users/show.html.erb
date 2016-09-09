@@ -1,0 +1,37 @@
+<div class = 'row'>
+    <div class = 'small-12 columns'>
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong>Ru name:</strong>
+          <%= @user.ru_name %>
+        </p>
+
+        <p>
+          <strong>En name:</strong>
+          <%= @user.en_name %>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </p>
+
+        <p>
+          <strong>Vk url:</strong>
+          <%= @user.vk_url %>
+        </p>
+
+        <p>
+          <strong>Fb url:</strong>
+          <%= @user.fb_url %>
+        </p>
+        <p>
+          <strong>Группа:</strong>
+          <%= @user.group[:full_name] %>
+        </p>
+        <%= link_to 'Edit', edit_user_path(@user) %> |
+        <%= link_to 'Back', users_path %>
+    </div>
+</div>
+

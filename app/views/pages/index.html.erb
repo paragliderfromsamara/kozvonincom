@@ -1,0 +1,9 @@
+<% if is_control? %>
+    <% if signed_in?  %>
+        <%= render 'control' %>
+    <%else%>
+        <%= render template: 'sessions/new' %>
+    <%end%>
+<% else %>
+    <%= render 'guest_user_index' %>
+<%end%>

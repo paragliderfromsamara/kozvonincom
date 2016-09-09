@@ -1,0 +1,48 @@
+<table id = "edit_photos_container">
+	<tbody id = "ph_<%=@photo.id%>">
+		<tr>					
+			<td>
+				<img src = "<%= @photo.link.medium_sq %>" />
+				<br /><br />
+				<%= link_to "<i class = 'fi-x fi-large rmv-photo-but'></i>".html_safe, @photo, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить фото?'}, remote: true, class: "ph-rmv"%><a class = 'ph-del' ></a>
+			</td>
+			<td id = 'photo_form_container' class = "photo-field-col">
+				<%= form_for(@photo, remote: true, html:{class: "photo-form"}) do |pF|%>
+					<%= pF.hidden_field :ru_tag_names, value: @photo.inScobeTags[:ru]  %>
+                    <%= pF.hidden_field :com_tag_names, value: @photo.inScobeTags[:com] %>
+					<%= pF.text_field :name, placeholder: "Название фото", value: @photo.merged_name %>
+					<%= pF.text_area :description, placeholder: "Описание фото", value: @photo.merged_description %>
+                    <%= pF.text_area :bg_opacity, placeholder: "Прозрачность если фон>=1.0>=0.0", value: @photo.bg_opacity %>
+                    <div class = 'row'>
+                        <div class = 'small-6 columns'>
+                            <%= pF.label :is_album_photo, "Сделать как фото альбома", for: "photo_is_album_photo_#{@photo.id}" %><%= pF.check_box :is_album_photo, id: "photo_is_album_photo_#{@photo.id}" %>
+                        </div>
+                        <div class = 'small-6 columns'>
+                             <%= pF.label :is_category_photo, "Сделать как фото категории", for: "photo_is_category_photo_#{@photo.id}" %><%= pF.check_box :is_category_photo, id: "photo_is_category_photo_#{@photo.id}" %>
+                        </div>
+                    </div>
+                    <div class = 'row'>
+                        <div class = 'small-6 columns'>
+                            <input type="text" class = "new_tag_field" locale = 'ru' placeholder = "Новый тэг для ru"  />
+                        </div>
+                        <div class = 'small-6 columns'>
+                            <input type="text" class = "new_tag_field" locale = 'com' placeholder = "Новый тэг для com"  />
+                        </div>
+                    </div>
+                    
+					<ul id = "tag_names_list">
+						<% if @photo.photo_tags != [] %>
+							<% @photo.photo_tags.each do |t| %>
+								<li><span locale = '<%=t[:locale]%>'><%= t.name %> <a><i class = "fi-x fi-medium"></i></a></span></li>
+							<% end %>
+						<% end %>
+					</ul>
+					<div class = "photo-notice">
+						<span style = "display:none;" class = "success label">Фото успешно обновлено</span>
+						<span style = "display:none;" class = "alert label">Не удалось обновить фото</span>
+					</div>
+				<% end %>
+			</td>
+		</tr>
+	</tbody>
+</table>

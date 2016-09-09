@@ -1,0 +1,44 @@
+@import "foundation-sites";
+@include foundation-global-styles;
+$medium-black: #232323;
+$thumbnail-border: solid 2px $white;
+///top-bar settings
+$menu-item-color: $white;
+$menu-item-color-active: $dark-gray;
+$menu-item-background-active:none;
+$topbar-background: $black;
+$topbar-padding: 0.5rem;
+$topbar-title-spacing: 0;
+//$topbar-padding: 0.5rem; 
+
+
+.top-bar 
+{
+    a{color: $white;}
+    a:hover {color: $light-gray;}
+}
+.orbit
+{
+    background-color: $black;
+    nav{padding-bottom: 10px;}
+}
+///top-bar settings end
+///tabs
+$tab-item-padding: 0.7rem 0.7rem;
+$tab-content-padding: 0.5rem 0 0 0;
+$orbit-bullet-margin: 0.4rem;
+///tabs end
+///orbit
+//$orbit-bullet-background: $dark-gray;
+//$orbit-bullet-background-active: $black;
+//$orbit-bullet-margin-bottom: 0.0rem;
+//$orbit-bullet-diameter: 1.0rem;
+//$orbit-bullet-margin: 0.3rem;
+///orbit end
+
+///reveal
+$reveal-background: $white;
+$reveal-width: 90%;
+$reveal-border: none;
+$reveal-offset: 10;
+///reveal end

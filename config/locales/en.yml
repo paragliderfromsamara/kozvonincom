@@ -1,0 +1,58 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+com:
+  site_link: "kozvonin.com"
+  default_site_title: "Bellringer's photography"
+  langLink: "Русская версия"
+  menu_albums: "Photo Albums"
+  menu_categories: "Categories"
+  menu_photos: "Photos"
+  menu_tags: "Tags"
+  filter_link: "Filter"
+  tags_list: "Listing Tags"
+  selected_tags: "Selected Tags"
+  menu_photo_tags: "Photo Tags"
+  empty_sel_tag_list_msg: "No tag was selected"
+  complete_filter_but_text: 'Apply'
+  reset_filter_but_text: 'Reset'
+  album_word: 'Album'
+  category_word: 'Category'
+  contacts: 'Contacts'
+  last_albums: Recently added albums
+#empty list messages 
+  no_photos_in_list: "There are no photos"
+  no_albums_in_list: "There are no albums"
+  no_categories_in_list: "There are no categories"
+  filter_header: "Filtering Result" 
+#empty list messages end
+  photos:
+        index:
+              header: "Listing Photos"
+        show:
+              next: "Next photo"
+              prev: "Previous photo"
+              main_info: "Main info"
+              tags: "Tags"
+              empty_tag_list: "This photo was not tagged"
+  albums:
+        index: 
+              header: "Listing Albums"

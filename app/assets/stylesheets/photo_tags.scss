@@ -1,0 +1,47 @@
+// Place all the styles related to the PhotoTags controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "foundation-sites";
+
+#filter-menu
+{
+    position: relative;
+    //background-color: $light-gray;
+    //height: 85px;
+    width: 100%;
+    border-bottom: 1px solid $light-gray;
+}
+
+
+
+#selected-tags-field
+{
+    ul {
+        list-style: none;
+        li{display: inline-block; padding: 0px 0px 0px 5px;}
+    }
+    
+}
+//before rails 5.0
+#tagsList, #categoryList
+{
+	list-style: none;
+	li 
+	{
+		display: inline-block;
+		height: 35px;
+		p 
+		{
+			padding: 5px 10px 5px 10px;
+		}
+	}
+    a{color: $black;}
+	a.selected  
+	{
+		//background-color: scale-color($primary-color, $lightness: -10%);
+		color: $success-color;
+	}
+	
+	
+}

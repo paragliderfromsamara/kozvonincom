@@ -1,0 +1,143 @@
+// Place all the styles related to the Photos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "application";
+#photo-show-tag-list
+{
+    position: relative;
+    list-style: none;
+    li 
+    {
+        display: inline-block;
+        margin-right: 0.5rem;
+        a{color: $dark-gray;}
+        a:hover {color: $medium-gray;}
+    }
+}
+#photo-show-field
+{
+    position:relative;
+    width: 100%;
+    background-color: $medium-black;
+    .arrows
+    {
+        cursor:pointer;
+        position:absolute;
+        width: 40%;
+        height: 100%;
+    }
+    #arrow-left
+    {
+        left:0;
+        top:0;
+        //background-color: blue;
+    }
+    #arrow-right
+    {
+        right:0;
+        top:0;
+        //background-color: red;
+    }
+}
+
+.rmv-photo-but
+{
+	color:red; 
+}
+
+#photo-viewer
+{
+	#ph-thumbs {height: 110px;}
+	.cur-photo
+	{
+		img {border-color: $dark-gray;} 
+	}
+}
+
+
+.photo-field-col
+{
+	width: 450px;
+}
+#edit_photos_container td {vertical-align: top;}
+#tag_names_list
+	{
+		li {
+			list-style: none;
+			display: inline-block;
+			cursor: pointer;
+			span {padding: 0 5px 0 5px;}
+		   }
+		li:hover
+			{
+				background-color: #f2feff;
+			}
+	}
+.photo-notice
+{
+	height: 30px;
+}
+
+
+	#photoPagination
+	{
+		background-color: #2d2d2d;
+		height:65px;
+		border-top: 1px solid #404040;
+		z-index: 10;
+	}
+	.ph-paginate 
+	{
+		width:100px; 
+		float:left;
+		position:relative; 
+		margin-left: 5px;
+		background-repeat:none;
+		-webkit-background-size:cover;
+		-o-background-size:cover;
+		-moz-background-size:cover;
+		background-size:cover;
+		height: 50px;
+		cursor:pointer;
+		
+		
+	}
+	.ph-cur 
+	{
+		border: 1px solid #3084c9;
+	}
+	.ph-h 
+	{
+		display: none;
+	}
+	#paginationLine
+	{
+        position: relative;
+        margin-left:auto;
+        margin-right:auto;
+		padding-top: 5px;
+		height:100%;
+		width: 810px;
+	}
+	.ph-arrows
+	{
+		position: relative;
+		height: 100%;
+		/*display:inline-block;*/
+		background-repeat:none;
+		width: 33px;
+		height: 50px;
+		float:left;
+		cursor: pointer;
+	}
+	.ph-arr-left
+	{
+		background-image: url('/files/bl_arr_l.png');
+		
+	}
+	.ph-arr-right
+	{
+		background-image: url('/files/bl_arr_r.png');
+	}
+
+

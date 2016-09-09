@@ -1,0 +1,14 @@
+<p id = "notice" class = 'success label'><%= notice %></p>
+<div class = "row">
+	<div class = "small-12 columns">
+        <% if !@album.loc_content(cur_locale).blank? %>
+            <p><%= @album.loc_content(cur_locale) %></p>
+        <%end%>
+		<% if @photos != [] %>
+			<%= render 'photos/type_normal' %>
+		<% end %>
+	</div>
+</div>
+
+
+

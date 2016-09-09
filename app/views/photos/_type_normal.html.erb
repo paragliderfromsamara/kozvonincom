@@ -1,0 +1,10 @@
+<% i = 1 %>
+<% @photos.each do |p| %>
+	<p><span><%= i %>.</span> <%= p.loc_desc(cur_locale) %></p>
+		<a href = "<%= photo_path(id: p.id, index: i-1) %>"><%= image_tag p.link.large %></a>
+	<% i+=1 %>
+	<br>
+	<br>
+	<br>
+    
+<% end %>

@@ -1,0 +1,58 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ru:
+  site_link: "kozvonin.ru"
+  default_site_title: "Сайт Романа Козвонина"
+  langLink: "English version"
+  menu_albums: "Альбомы"
+  menu_categories: "Категории"
+  menu_photos: "Фотографии"
+  menu_tags: "Тэги"
+  filter_link: "Фильтр"
+  tags_list: "Список тэгов"
+  selected_tags: "Выбранные тэги"
+  menu_photo_tags: "Фото-Тэги"
+  empty_sel_tag_list_msg: "Не выбрано ни одного тэга"
+  complete_filter_but_text: 'Применить'
+  reset_filter_but_text: 'Сбросить'
+  album_word: 'Альбом'
+  category_word: 'Категория'
+  contacts: 'Контакты'
+  last_albums: Крайние добавленные альбомы
+#empty list messages 
+  no_photos_in_list: "Нет ни одной фотографии"
+  no_albums_in_list: "Нет ни одного альбома"
+  no_categories_in_list: "Категории отсутствуют" 
+#empty list messages end
+  photos:
+        index:
+              header: "Список фотографий"
+        show:
+              next: "Следующее фото"
+              prev: "Предыдущее фото"
+              main_info: "Основная информация"
+              tags: "Тэги"
+              empty_tag_list: "Фото не было отмечено"
+  albums:
+        index: 
+              header: "Все альбомы"
+              

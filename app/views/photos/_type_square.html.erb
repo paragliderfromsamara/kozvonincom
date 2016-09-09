@@ -1,0 +1,11 @@
+<div class="row small-up-2 medium-up-4">
+ <%i=0%>
+  <% @photos.each do |p| %>
+	  <div class="column">
+		<a data-open="photo-viewer" data-img-index = <%= i %> data-imgbox = "<%= p.jsonObjString %>">
+			<%= image_tag p.link.medium_sq, class: "thumbnail" %>
+		</a>
+	  </div>
+	  <%i+=1%>
+  <% end %>
+</div>

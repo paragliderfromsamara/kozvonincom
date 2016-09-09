@@ -1,0 +1,49 @@
+<%
+@title = @header = (controller.action_name == 'new' || controller.action_name == 'create')? "Новая категория" : "Изменение категории"
+%>
+<div class = 'row'>
+    <div class = 'small-12 columns'>
+        <%= form_for(@category) do |f| %>
+          <% if @category.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+              <ul>
+              <% @category.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :ru_name, "Русское название" %>
+            <%= f.text_field :ru_name %>
+          </div>
+          <div class="field">
+            <%= f.label :com_name, "Английское название" %>
+            <%= f.text_field :com_name %>
+          </div>
+          <div class="field">
+            <%= f.label :ru_description, "Русское описание" %>
+            <%= f.text_field :ru_description %>
+          </div>
+          <div class="field">
+            <%= f.label :com_description, "Английское описание" %>
+            <%= f.text_field :com_description %>
+          </div>
+          <div class="field">
+            <%= f.label :order_number, "Порядковый номер" %>
+            <%= f.number_field :order_number %>
+          </div>
+          <div class="field">
+            <%= f.label :is_enable, "Активен" %>
+            <%= f.check_box :is_enable %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Сохранить", class: 'button' %>
+          </div>
+        <% end %>
+        
+    </div>
+</div>

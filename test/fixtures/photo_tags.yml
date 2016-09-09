@@ -1,0 +1,54 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "defaultag_1"
+  locale: 'en'
+
+two:
+  name: "defaultag_2"
+  locale: 'ru'
+
+testTag:
+  name: "тесттэг"
+  locale: 'ru'
+
+ru_tag:
+  name: "русский тэг"
+  locale: "ru"
+  
+en_tag:
+  name: "english tag"
+  locale: "en"
+  
+unused_tag_1:
+  name: "unused_tags"
+  locale: 'ru'
+  
+unused_tag_2:
+  name: "unused_tag_2"
+  locale: 'ru'
+  
+used_tags_1:
+  id: 100
+  name: "used_tag_1"
+  locale: 'ru'
+  
+photo_destroy_test_1:
+  id: 201
+  name: "photo_destroy_test_1"
+  locale: 'ru'
+
+photo_destroy_test_2:
+  id: 202
+  name: "photo_destroy_test_2"
+  locale: 'en'
+  
+photo_destroy_test_3:
+  id: 203
+  name: "photo_destroy_test_3"
+  locale: 'ru'
+  
+photo_destroy_test_4:
+  id: 204
+  name: "photo_destroy_test_4"
+  locale: 'ru'

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ru_name: MyString
+  com_name: MyString
+  ru_description: MyString
+  com_description: MyString
+  order_number: 1
+  is_enable: false
+
+two:
+  ru_name: MyString
+  com_name: MyString
+  ru_description: MyString
+  com_description: MyString
+  order_number: 2
+  is_enable: false
+
+enabled:
+  ru_name: RuEnabled
+  com_name: EnEnabled
+  ru_description: MyString
+  com_description: MyString
+  order_number: 3
+  is_enable: true
+
+disabled:
+  ru_name: RuDisabled
+  com_name: EnDisabled
+  ru_description: MyString
+  com_description: MyString
+  order_number: 4
+  is_enable: true

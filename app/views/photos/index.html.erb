@@ -1,0 +1,14 @@
+<div id = "photosList">
+	<% if @photos != [] %>
+		<% if params[:ph_type] == "normal" %>
+			<%= render "type_normal" %>
+		<% else %>
+			<%= render "type_square" %>
+		<% end %>
+	<% else %>
+		<p><%= t :no_photos_in_list %></p>
+	<% end %>
+</div>
+
+
+<%= link_to 'New Photo', new_photo_path %>

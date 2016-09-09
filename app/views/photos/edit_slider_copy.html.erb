@@ -1,0 +1,34 @@
+<%= form_for(@photo, url: "/photos/#{@photo.id}/update_slider_copy") do |f| %>
+
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<%= f.hidden_field :x, id: 'x' %>
+	<%= f.hidden_field :y, id: 'y' %>
+	<%= f.hidden_field :w, id: 'w' %>
+	<%= f.hidden_field :h, id: 'h' %>
+	<img src="<%= @photo.link %>" alt="crop img" class="cropimg" />
+	<script>
+    $(document).ready(function() {
+      $('img.cropimg').cropimg({
+        resultWidth:1200,
+        resultHeight:300,
+        onChange: function() {
+          $('#preview-info').hide();
+          $('#preview-container').show();
+        }
+      });
+    });
+    </script>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

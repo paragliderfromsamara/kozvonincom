@@ -1,0 +1,92 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString
+
+two:
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString
+
+three:
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString
+ 
+four:
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString
+
+five:
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString
+
+dif_locale_test_ru:
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString
+  
+dif_locale_test_en:
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString
+  
+unusedTagTest:
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString
+  
+unusedTagTest_2:
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString
+  
+photo_for_destroy_test:
+  id: 2120
+  album_id: 1
+  ru_name: MyString
+  ru_description: MyString
+  com_name: MyString
+  com_description: MyString
+  get_at: 2015-11-02 10:13:08
+  link: MyString

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= my_title %></title>
+    <%= csrf_meta_tags %>
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <div class="top-bar">
+          <div class = 'row'>
+              <div class = 'small-12 columns'>
+                <div class="top-bar-title">
+          			<ul class="menu">
+          			  <li><a href = '<%= root_path %>' ><%= t(:site_link) %></a></li>
+          			</ul>
+                </div>
+                  <div class="top-bar-right">
+            			<ul class="menu">
+                            <%= drawMenu.html_safe %>
+            			    <li><a id = "open-filter" ><i class = 'fi-filter'></i><%= t(:filter_link) %></a></li>
+            			</ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+     <%= photo_filter %>
+     <%= my_header %> 
+	<div id = "wrapper">
+    	
+		<div id = "middle">
+			<%= yield %>
+		</div>
+		<div id = "footer">
+            <div class = 'row'>
+                <div class = 'small-12 columns'>
+                    <span id = "contacts-title">
+                        <%= t(:contacts) %>
+                    </span>
+                    <ul id = 'social-list'>
+                        <li>
+                            <a rel = 'nofollow' target = '_blank' href = 'https://www.facebook.com/roman.kozvonin'>
+               				    <img src = "/social_svg/fb.svg" class = "social-icons normal">
+                                <img src = "/social_svg/fb_hover.svg" class = "social-icons hovered">
+                            </a>
+                        </li>
+                        <li>
+                            <a rel = 'nofollow' target = '_blank' href = 'https://vk.com/roman_kozvonin'>
+               				    <img src = "/social_svg/vk.svg" class = "social-icons normal">
+                                <img src = "/social_svg/vk_hover.svg" class = "social-icons hovered">
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+		</div>
+	</div>
+  </body>
+</html>

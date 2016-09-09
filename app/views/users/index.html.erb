@@ -1,0 +1,40 @@
+<div class='row'>
+    <div class = 'small-12 columns'>
+        <p id="notice"><%= notice %></p>
+
+
+        <%= link_to'<i class = "fi-plus"></i> Добавить пользователя'.html_safe, new_user_path %>
+        <br><br>
+        <table>
+          <thead>
+            <tr>
+              <th>Имя</th>
+              <th>Имя на английском</th>
+              <th>Email</th>
+              <th>VK</th>
+              <th>FB</th>
+              <th>Группа</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.ru_name %></td>
+                <td><%= user.en_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.vk_url %></td>
+                <td><%= user.fb_url %></td>
+                <td><%= user.group[:name] %></td>
+                <td><%= link_to 'Перейти', user %></td>
+                <td><%= link_to 'Изменить', edit_user_path(user) %></td>
+                <td><%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+    </div>
+</div>
+

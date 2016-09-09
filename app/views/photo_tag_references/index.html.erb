@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Photo Tag References</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Photo tag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photo_tag_references.each do |photo_tag_reference| %>
+      <tr>
+        <td><%= photo_tag_reference.photo_id %></td>
+        <td><%= photo_tag_reference.photo_tag_id %></td>
+        <td><%= link_to 'Show', photo_tag_reference %></td>
+        <td><%= link_to 'Edit', edit_photo_tag_reference_path(photo_tag_reference) %></td>
+        <td><%= link_to 'Destroy', photo_tag_reference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Photo tag reference', new_photo_tag_reference_path %>

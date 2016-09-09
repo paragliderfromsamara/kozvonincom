@@ -1,0 +1,62 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  category_id: 1
+  ru_name: MyString
+  com_name: MyString
+  get_at: 2015-11-02 10:11:03
+  ru_content: RuLocaleContent
+  com_content: EnLocaleContent
+  is_enable: true
+  is_draft: false
+
+two:
+  category_id: 1
+  ru_name: MyString
+  com_name: MyString
+  get_at: 2015-11-02 10:11:03
+  ru_content: RuLocaleContent
+  com_content: EnLocaleContent
+  is_enable: true
+  is_draft: false
+  
+enabled:
+  category_id: 1
+  get_at: 2015-11-02 10:11:03
+  ru_name: RuLocaleName
+  com_name: EnLocaleName
+  ru_content: RuLocaleContent
+  com_content: EnLocaleContent
+  is_enable: true
+  is_draft: false
+  
+disabled:
+  category_id: 1
+  get_at: 2015-11-02 10:11:03
+  ru_name: RuLocaleName
+  com_name: EnLocaleName
+  ru_content: RuLocaleContent
+  com_content: EnLocaleContent
+  is_enable: false
+  is_draft: false
+  
+disabled_draft:
+  category_id: 1
+  get_at: 2015-11-02 10:11:03
+  ru_name: RuLocaleName
+  com_name: EnLocaleName
+  ru_content: RuLocaleContent
+  com_content: EnLocaleContent
+  is_enable: false
+  is_draft: true
+  
+enabled_draft:
+  category_id: 1
+  get_at: 2015-11-02 10:11:03
+  ru_name: RuLocaleName
+  com_name: EnLocaleName
+  ru_content: RuLocaleContent
+  com_content: EnLocaleContent
+  is_enable: true
+  is_draft: true

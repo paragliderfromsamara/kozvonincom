@@ -1,0 +1,10 @@
+<% if is_control? %>
+    <%= render 'control_index' %>
+<%else%>
+    <div class = 'c-box-lgray'>
+        <div class = 'tb-pad-l'>
+            <%= render 'albums_list' %>
+        </div>
+    </div>
+     
+<%end%>

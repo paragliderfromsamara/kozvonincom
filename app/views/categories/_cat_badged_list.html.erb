@@ -1,0 +1,37 @@
+<%cats = (@categories.nil?) ? Category.order("#{cur_locale}_name ASC" ) : @categories %>
+
+<div class 'c-box'>
+    <div class = 'tb-pad-m'>
+    <div class = 'row'>
+        <div class = 'small-12 columns' style = 'text-align: center;'>
+            <h3>
+                <%= t(:menu_categories) %>
+            </h3>
+        </div>
+    </div>
+    <div class = 'row'>
+        <div class = 'small-12 columns'>
+            <%if !cats.blank? %>
+                <div id = 'c-list-wrapper' style = 'width: <%= ((210*cats.size)).to_s %>px;'>
+                    <ul id = 'c-list'>
+                        <%cats.each do |c|%>
+                            <a href = '<%= category_path(c) %>'>
+                                <li>
+                                    <span class= "secondary c-badge">
+                                        <%= c.text(cur_locale)[:name].mb_chars.first.upcase %>
+                                    </span>
+                                    <p>
+                                        <%= c.text(cur_locale)[:name].mb_chars.downcase %>
+                                    </p>
+                                </li>
+                            </a>
+                        <%end%>
+                    </ul>
+                </div>
+            <%else%>
+                <%= t :no_categories_in_list %>
+            <%end%>
+        </div>
+    </div>
+    </div>
+</div>

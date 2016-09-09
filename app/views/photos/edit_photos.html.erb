@@ -1,0 +1,14 @@
+<h1><%= @header %></h1>
+
+
+<div id = "edit_photos_wrapper">
+    <div id = "edit_photos_container" class = 'row small-up-4 tb-pad-s'>
+        <%@album.photos.each do |p|%>
+            <div class="column">
+                <%= link_to "<i class = 'fi-x fi-large rmv-photo-but'></i>".html_safe, p, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить фото?'}, remote: true, class: "ph-rmv"%> <a class = 'ph-edit' ph-id = "<%=p.id%>"><i class = 'fi-pencil'></i></a>
+                <%= image_tag p.link.medium_sq, class:'thumbnail' %>
+            </div>
+        <%end%>
+    </div>
+</div>
+<%= link_to 'Back', photos_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @photo_tag_reference.photo_id %>
+</p>
+
+<p>
+  <strong>Photo tag:</strong>
+  <%= @photo_tag_reference.photo_tag_id %>
+</p>
+
+<%= link_to 'Edit', edit_photo_tag_reference_path(@photo_tag_reference) %> |
+<%= link_to 'Back', photo_tag_references_path %>

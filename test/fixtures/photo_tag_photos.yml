@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  photo_id: 1
+  photo_tag_id: 1
+
+two:
+  photo_id: 1
+  photo_tag_id: 1
+
+for_used_tag_1:
+  photo_id: 1
+  photo_tag_id: 100
+  
+for_used_tag_2:
+  photo_id: 1
+  photo_tag_id: 101
+  
+photo_destroy_test_1:
+  photo_id: 2120
+  photo_tag_id: 201
+  
+photo_destroy_test_2:
+  photo_id: 2120
+  photo_tag_id: 202
+  
+photo_destroy_test_3:
+  photo_id: 2120
+  photo_tag_id: 203
+  
+photo_destroy_test_4:
+  photo_id: 2120
+  photo_tag_id: 204

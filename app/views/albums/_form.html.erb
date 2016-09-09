@@ -1,0 +1,59 @@
+<% @title = @header = controller.action_name == 'new' || controller.action_name == 'create' ? "Новый альбом" : "Изменить альбом" %>
+<div class = 'c-box'>
+    <div class = 'tb-pad-l'>
+        <div class = 'row'>
+            <div class = 'small-12 columns'>
+                <div id = "albumFormContainer">	
+                	<%= form_for(@album, multipart: true, html: {album_id: @album.id}) do |f| %>
+                        <%= f.hidden_field :is_draft, value: false %>
+                	  <% if @album.errors.any? %>
+                		<div id="error_explanation">
+                		  <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+                		  <ul>
+                		  <% @album.errors.full_messages.each do |message| %>
+                			<li><%= message %></li>
+                		  <% end %>
+                		  </ul>
+                		</div>
+                	  <% end %>
+                      <div class="field">
+                          <%= f.label :is_enable, "Активен" %>
+                	      <%= f.check_box :is_enable %>
+                      </div>
+                	  <div class="field">
+                		<%= f.label :name, "Название альбома" %>
+                		<%= f.text_field :name, :placeholder => "Введите название альбома", value: @album.merged_name, require: true %>
+                	  </div>
+                	  <div class="field">
+                        <% categories = Category.where(is_enable: true).order("order_number DESC")%>
+                		<%= f.label :category_id, "Название альбома" %>
+                		<%= f.collection_select :category_id, categories, :id, :ru_name %>
+                	  </div>
+                	  <div class="field">
+                		<%= f.label :content, "Описание альбома" %>
+                		<%= f.text_area :content, :placeholder => "Описание альбома", value: @album.merged_content, rows: 10 %>
+                	  </div>
+                	  <div class="actions">
+                		<a id = "submitAlbumForm" role="button" onclick = "$(this).parents('form').submit()" data-role = "submit" aria-label="submit form" class="button"><%= (controller.action_name == "new" || controller.action_name == "create")? "Добавить" : "Сохранить" %></a>
+                	  </div>
+                	<% end %>
+                    <%= form_for(:photo, url: '/upload_photos', html: {id: "drop", class: "dropzone" }) do |f|%>
+                        <%= f.hidden_field :album_id, value: @album.id %>
+                    <%end%>
+                    <div class="reveal small" id="editPhotoForm" data-reveal>
+                        <h2>Изменение фотографии</h2>
+                      <div>
+                      </div>
+                      <button class="close-button" data-close aria-label="Закрыть форму" type="button">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                	<div id = "edit_photos_wrapper">
+        		
+                	</div>
+                </div>
+        	</div>
+        </div>
+    </div>
+</div>

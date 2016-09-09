@@ -1,0 +1,73 @@
+<%
+
+    @title = @header = (controller.action_name == "edit" || controller.action_name == "update")? 'Изменение данных пользователя' : "Новый пользователь"
+
+%>
+
+<div class = 'row'>
+    <div class ='small-12 columns'>
+        <%= form_for(@user) do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <% if user_type == 'admin' %>
+              <div class = 'field'>
+                <%= f.label :user_type_id, "Группа" %>
+                <select id = 'user_user_type_id' name = "user[user_type_id]">
+                    <option value = '<%= @user.group[:id] %>'>
+                        <%= @user.group[:name] %>
+                    </option>
+                    <% User.groups.each do |g| %>
+                        <% if @user.group[:id] != g[:id]%>
+                            <option value = '<%= g[:id] %>'>
+                                <%= g[:name] %>
+                            </option>
+                        <% end %>
+                    <% end %>
+                </select>
+              </div>
+          <%end%>
+          <div class="field">
+            <%= f.label :email, "Адрес электронной почты" %>
+            <%= f.text_field :email, require: true %>
+          </div>
+          <div class="field">
+            <%= f.label :ru_name, 'Имя на русском языке' %>
+            <%= f.text_field :ru_name, require: true %>
+          </div>
+          <div class="field">
+            <%= f.label :en_name, 'Имя на английском языке' %>
+            <%= f.text_field :en_name, require: true %>
+          </div>
+          <div class="field">
+            <%= f.label :password, 'Пароль' %>
+            <%= f.text_field :password, require: true %>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation, 'Подтверждение пароля' %>
+            <%= f.text_field :password_confirmation, require: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :vk_url, "Аккаунт вконтакте" %>
+            <%= f.text_field :vk_url %>
+          </div>
+          <div class="field">
+            <%= f.label :fb_url, "Аккаунт фэйсбук" %>
+            <%= f.text_field :fb_url %>
+          </div>
+          <div class="actions">
+            <%= f.submit 'Сохранить', class: 'button' %>
+          </div>
+        <% end %>
+    </div>
+</div>
+

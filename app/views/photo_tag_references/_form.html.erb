@@ -1,0 +1,25 @@
+<%= form_for(@photo_tag_reference) do |f| %>
+  <% if @photo_tag_reference.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo_tag_reference.errors.count, "error") %> prohibited this photo_tag_reference from being saved:</h2>
+
+      <ul>
+      <% @photo_tag_reference.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :photo_id %><br>
+    <%= f.number_field :photo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_tag_id %><br>
+    <%= f.number_field :photo_tag_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<%@header = 'Вход'%>
+<div class = 'row'>
+    <div class = 'small-12 columns'>
+        <%= form_for(:session, :url => sessions_path(:redirect_to => 'index'), :html => {:id => 'sesForm'}) do |f|  %>
+            <%= f.text_field :email, :placeholder => 'E-mail' %>
+            <%= f.password_field :password, :placeholder => 'Пароль' %>
+            <%= f.submit "Войти", class: 'button' %>
+        <% end %>
+    </div>
+</div>
