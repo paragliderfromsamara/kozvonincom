@@ -37,9 +37,18 @@ class PhotoUploader < CarrierWave::Uploader::Base
 	end
   
 	version :large, from_version: :largest do
+        
 		process :resize_to_fit => [1000, 750]
+        
 	end
-	
+	version :meta_com, from_version: :large do
+        process :add_water_mark_com
+        process :resize_to_fit => [600, 450]
+    end
+	version :meta_ru, from_version: :large do
+        process :add_water_mark_ru
+        process :resize_to_fit => [600, 450]
+    end
 	version :medium do
 		process :resize_to_fit => [600, 450]
 	end
@@ -96,4 +105,42 @@ class PhotoUploader < CarrierWave::Uploader::Base
     "#{model.file_name}.jpg" if original_filename
   end
 
+  private 
+  
+  def add_water_mark_com
+      manipulate! do |image|
+          mark = Magick::Image.new(300, 18){self.background_color = 'white' 
+                                            self.quality= 100}
+          gc = Magick::Draw.new
+          gc.text_antialias(true)
+          gc.gravity = Magick::CenterGravity
+          gc.pointsize = 14
+          gc.fill = 'black'
+          gc.font = "Ubuntu"
+          gc.font_weight = Magick::NormalWeight
+          gc.stroke = 'none'
+          gc.annotate(mark, 0, 0, 0, 3, "Roman Kozvonin | KOZVONIN.COM")
+          #mark.shade(true, 310, 30)
+          #mark = Magick::Image.read(Rails.root.join("public/water_marks/en_mark.jpg")).first
+          image.composite!(mark, Magick::SouthGravity, Magick::OverCompositeOp)
+      end
+  end
+  def add_water_mark_ru
+      manipulate! do |image|
+          mark = Magick::Image.new(300, 18){self.background_color = 'white' 
+                                            self.quality= 100}
+          gc = Magick::Draw.new
+          gc.text_antialias(true)
+          gc.gravity = Magick::CenterGravity
+          gc.pointsize = 14
+          gc.fill = 'black'
+          gc.font = "Ubuntu"
+          gc.font_weight = Magick::NormalWeight
+          gc.stroke = 'none'
+          gc.annotate(mark, 0, 0, 0, 3, "Роман Козвонин | KOZVONIN.RU")
+          #mark.shade(true, 310, 30)
+          #mark = Magick::Image.read(Rails.root.join("public/water_marks/en_mark.jpg")).first
+          image.composite!(mark, Magick::SouthGravity, Magick::OverCompositeOp)
+      end
+  end
 end

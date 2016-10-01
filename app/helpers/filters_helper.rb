@@ -34,7 +34,7 @@ module FiltersHelper
                 
             </div>
         </div>
-        
+        </div>
     </div>
     "
     return val.html_safe

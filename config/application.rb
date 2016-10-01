@@ -13,6 +13,6 @@ module KozvoninCom
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
-    config.i18n.available_locales = [:ru, :com]
+    config.i18n.available_locales = [:ru, :com, :en]
   end
 end

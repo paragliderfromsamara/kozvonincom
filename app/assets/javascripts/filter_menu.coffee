@@ -47,7 +47,7 @@ class FilterMenu
         sTags = @selectedTags()
         sCats = @selectedCategories()
         if sTags.length is 0 && sCats.length is 0 then @applyBut.addClass('disabled') else @applyBut.removeClass('disabled')
-        if sTags > 0 then @selTagsList.find("#empty-tag-list-msg").hide() else @selTagsList.find("#empty-tag-list-msg").show() 
+        if sTags.length > 0 then @selTagsList.find("#empty-tag-list-msg").hide() else @selTagsList.find("#empty-tag-list-msg").show() 
     
     applyFilter: ()->
         _this = this
@@ -79,7 +79,7 @@ class FilterMenu
                             _this.filterResultRow.empty()
                             _this.receivedData = data
                             _this.drawByPageNumber(true)
-                            
+                            $('.orbit').hide()
                         
                 }
     fillHeader: ()->
@@ -250,12 +250,12 @@ class FilterMenu
         if isQuick is true
             @fElement.hide()
         else
-            if @fElement.css('display') isnt 'none' then @fElement.slideUp(500)     
+            if @fElement.css('display') isnt 'none' then @fElement.slideUp(500) 
     open: (isQuick)-> 
         if isQuick is true
             @fElement.show()
         else
-            if @fElement.css('display') is 'none' then @fElement.slideDown(500)
+            if @fElement.css('display') is 'none' then @fElement.slideDown(500) 
            
     selectedTags: ->
         @selTagsList.find("a")

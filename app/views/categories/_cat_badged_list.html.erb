@@ -1,6 +1,6 @@
-<%cats = (@categories.nil?) ? Category.order("#{cur_locale}_name ASC" ) : @categories %>
+<%cats = (@categories.nil?) ? Category.enabled.order("#{cur_locale}_name ASC" ) : @categories %>
 
-<div class 'c-box'>
+<div class = 'c-box'>
     <div class = 'tb-pad-m'>
     <div class = 'row'>
         <div class = 'small-12 columns' style = 'text-align: center;'>
@@ -12,7 +12,7 @@
     <div class = 'row'>
         <div class = 'small-12 columns'>
             <%if !cats.blank? %>
-                <div id = 'c-list-wrapper' style = 'width: <%= ((210*cats.size)).to_s %>px;'>
+                <div id = 'c-list-wrapper' style = 'width: <%= ((215*cats.size)).to_s %>px;'>
                     <ul id = 'c-list'>
                         <%cats.each do |c|%>
                             <a href = '<%= category_path(c) %>'>

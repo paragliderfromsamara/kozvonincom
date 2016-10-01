@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   include PhotosHelper
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  #before_action :check_grants, only: [:index, :new, :edit, :update, :destroy]
 
   # GET /photos
   # GET /photos.json
@@ -68,7 +69,7 @@ class PhotosController < ApplicationController
 		@header = "Изменение фотографий"
 		@photos = Photo.where(album_id: [nil, 0])
 	end
-	redirect_to '/404' if @photos == []
+	#redirect_to '/404' if @photos == []
   end
   
   def edit_slider_copy
@@ -148,5 +149,9 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:album_id, :name, :description, :get_at, :link, :ru_tag_names, :com_tag_names, :is_album_photo, :is_category_photo, :bg_opacity)
+    end
+    
+    def check_grants
+        
     end
 end

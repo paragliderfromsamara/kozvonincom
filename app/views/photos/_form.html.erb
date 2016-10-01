@@ -15,10 +15,10 @@
                     <%= pF.text_area :bg_opacity, placeholder: "Прозрачность если фон>=1.0>=0.0", value: @photo.bg_opacity %>
                     <div class = 'row'>
                         <div class = 'small-6 columns'>
-                            <%= pF.label :is_album_photo, "Сделать как фото альбома", for: "photo_is_album_photo_#{@photo.id}" %><%= pF.check_box :is_album_photo, id: "photo_is_album_photo_#{@photo.id}" %>
+                            <%= pF.label :is_album_photo, "В главном слайдере", for: "photo_is_album_photo_#{@photo.id}" %><%= pF.check_box :is_album_photo, id: "photo_is_album_photo_#{@photo.id}" %>
                         </div>
                         <div class = 'small-6 columns'>
-                             <%= pF.label :is_category_photo, "Сделать как фото категории", for: "photo_is_category_photo_#{@photo.id}" %><%= pF.check_box :is_category_photo, id: "photo_is_category_photo_#{@photo.id}" %>
+                             <%= pF.label :is_category_photo, "В слайдере категории", for: "photo_is_category_photo_#{@photo.id}" %><%= pF.check_box :is_category_photo, id: "photo_is_category_photo_#{@photo.id}" %>
                         </div>
                     </div>
                     <div class = 'row'>

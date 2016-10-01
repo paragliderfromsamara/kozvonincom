@@ -24,9 +24,9 @@ module PhotoTagsHelper
 		return "<ul class=\"tabs\" data-tabs id = \"charListTabs\">#{tabs}</ul><div class=\"tabs-content\" data-tabs-content=\"charListTabs\">#{tabsContent}</div>"
 	end
   
-  def tags_list_in_photo_show
-    tags = @photo.photo_tags.where(locale: cur_locale.to_s)
-    return "<p>#{t('.empty_tag_list')}</p>" if tags.size == 0
+  def tags_list_on_photo(photo=@photo)  
+    tags = photo.photo_tags.where(locale: cur_locale.to_s)
+    return "<p>#{t('.empty_tag_list')}</p>" if tags.size == 0 && controller.controller_name == 'photos'
     v = ''
     tags.each {|tag| v += "<li><a class= 'filter-tag-in-list' tag-id = \"#{tag.id}\"><i class = 'fi-price-tag'></i> #{tag.name}</a></li>"}
     return "<ul id = 'photo-show-tag-list'>#{v}</ul>"

@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
   def show
     @title = @header = @category.text(cur_locale)[:name]
     @albums = @category.albums.where(is_draft: false)
+    @slider_photos = @category.photos.where(is_category_photo: true)
   end
 
   # GET /categories/new

@@ -26,13 +26,14 @@ module ApplicationHelper
 	def menuItems
 		[	
 			{
-				name: t(:menu_albums),
-				link: albums_path
-			},
-			{
-				name: t(:menu_photos),
-				link: photos_path
+				name: t(:menu_categories),
+				#link: categories_path,
+                dropdown: cat_dd_list
 			}
+			#{
+			#	name: t(:menu_photos),
+			#	link: photos_path
+			#}
 			#{
 			#	name: t(:menu_tags),
 			#	link: photo_tags_path
@@ -46,11 +47,20 @@ module ApplicationHelper
 	def drawMenu
 		v = ""
 		menuItems.each do |i|
-			v += "<li#{" class = 'active'" if current_page?(i[:link])}><a href='#{i[:link]}'>#{i[:name]}</a></li>"
+			v += "<li #{" class = 'active'" if current_page?(i[:link]) && !i[:link].nil?}>"
+            v += "<a href='#{i[:link].nil? ? '#' : i[:link]}'>#{i[:name]}</a>"
+            v += i[:dropdown] if !i[:dropdown].blank?
+            v += "</li>"
 		end
 		return v
 	end
-  
+    def cat_dd_list
+        html = ''
+        cats = Category.enabled
+        cats.each {|c| html += "<li#{" class = 'active'" if current_page?(category_path(c))}><a href = '#{category_path(c)}'>#{c.loc_name(cur_locale)}</a></li>"} 
+        html = html.blank? ? "" : "<ul class = 'menu vertical'>#{html}</ul>"
+        return html
+    end
   
   
   def recreate_photo_versions

@@ -1,14 +1,30 @@
 <p id = "notice" class = 'success label'><%= notice %></p>
+<div class = 'c-box'>
+    <div class = 'tb-pad-m'>
+        <div class = "row">
+        	<div class = "small-6 columns">
+                <p class = 'text-left text-dg'><em><%= t :added %>  <%= @album.created_at.strftime(t(:dateFormat)) %></em> | <em><%= t :taken %>  <%= @album.get_at.strftime(t(:dateFormat)) %></em> | <i class = 'fi-camera secondary'></i> <%= @photos.size %> </p>
+        	</div>
+        	<div class = "small-6 columns">
+                <p class = 'text-right text-dg'></p>
+        	</div>
+        </div>
+    </div>
+</div>
 <div class = "row">
 	<div class = "small-12 columns">
         <% if !@album.loc_content(cur_locale).blank? %>
             <p><%= @album.loc_content(cur_locale) %></p>
         <%end%>
-		<% if @photos != [] %>
-			<%= render 'photos/type_normal' %>
-		<% end %>
 	</div>
 </div>
-
-
+<div class = 'c-box'>
+    <div class = "row">
+    	<div class = "small-12 columns">
+            <% if @photos != [] %>
+            	<%= render 'photos/type_normal' %>
+            <% end %>
+    	</div>
+    </div>
+</div>
 

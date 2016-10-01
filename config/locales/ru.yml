@@ -38,6 +38,9 @@ ru:
   category_word: 'Категория'
   contacts: 'Контакты'
   last_albums: Крайние добавленные альбомы
+  added: "Добавлен"
+  taken: "Снято"
+  dateFormat: "%d/%m/%Y"
 #empty list messages 
   no_photos_in_list: "Нет ни одной фотографии"
   no_albums_in_list: "Нет ни одного альбома"
@@ -55,4 +58,5 @@ ru:
   albums:
         index: 
               header: "Все альбомы"
-              
+  page_not_found: "Страница не найдена"
+  page_not_found_message: "Введён неправильный адрес, либо страница с указанным адресом не существует"

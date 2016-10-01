@@ -20,7 +20,10 @@
 
     var readyFunc = function()
     {
+        //var elem = null;
         $(document).foundation();
+        //elem = new Foundation.DropdownMenu($("#dd-menu"));
+        
     }
     document.addEventListener("turbolinks:load", readyFunc);
     

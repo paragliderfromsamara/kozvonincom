@@ -27,8 +27,9 @@ $global-width: 1000px;
 @include foundation-forms;
 @include foundation-thumbnail;
 @include foundation-menu;
-@include foundation-table;
 @include foundation-top-bar;
+@include foundation-dropdown-menu;
+@include foundation-table;
 @include foundation-tabs;
 @include foundation-badge;
 @include foundation-orbit;
@@ -77,6 +78,10 @@ $global-width: 1000px;
 {
 	padding: 5rem 0 3rem 0;
 }
+#middle
+{
+    min-height: 300px;
+}
 #footer
 {
     position: relative;
@@ -122,3 +127,8 @@ $global-width: 1000px;
 
 /*social icons end*/
 
+/* MyTextformat */
+.text-dg
+{
+    color: $dark-gray;
+}

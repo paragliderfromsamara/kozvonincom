@@ -38,6 +38,9 @@ com:
   category_word: 'Category'
   contacts: 'Contacts'
   last_albums: Recently added albums
+  added: "Added"
+  taken: "Taken"
+  dateFormat: "%Y/%m/%d"
 #empty list messages 
   no_photos_in_list: "There are no photos"
   no_albums_in_list: "There are no albums"
@@ -56,3 +59,5 @@ com:
   albums:
         index: 
               header: "Listing Albums"
+  page_not_found: "The page you were looking for doesn't exist."
+  page_not_found_message: "You may have mistyped the address or the page may have moved."

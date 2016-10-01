@@ -17,17 +17,22 @@
                 		  </ul>
                 		</div>
                 	  <% end %>
+                      <div class = 'field'>
+                          <%= f.label :get_at, "Снято" %>
+                	      <%= f.date_field :get_at %>
+                          
+                      </div>
                       <div class="field">
                           <%= f.label :is_enable, "Активен" %>
                 	      <%= f.check_box :is_enable %>
                       </div>
                 	  <div class="field">
                 		<%= f.label :name, "Название альбома" %>
-                		<%= f.text_field :name, :placeholder => "Введите название альбома", value: @album.merged_name, require: true %>
+                		<%= f.text_field :name, :placeholder => "Введите название альбома 'РусИмя {EnName}'", value: @album.merged_name, require: true %>
                 	  </div>
                 	  <div class="field">
                         <% categories = Category.where(is_enable: true).order("order_number DESC")%>
-                		<%= f.label :category_id, "Название альбома" %>
+                		<%= f.label :category_id, "Категория альбома" %>
                 		<%= f.collection_select :category_id, categories, :id, :ru_name %>
                 	  </div>
                 	  <div class="field">
