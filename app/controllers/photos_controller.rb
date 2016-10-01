@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
   include PhotosHelper
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  #before_action :check_grants, only: [:index, :new, :edit, :update, :destroy]
+  before_action :check_grants, only: [:index, :new, :create, :edit_photos, :edit, :update, :destroy]
 
   # GET /photos
   # GET /photos.json
@@ -152,6 +152,6 @@ class PhotosController < ApplicationController
     end
     
     def check_grants
-        
+        redirect_to '/404' if !signed_in?
     end
 end

@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
     parsed_locale = request.host.split('.').last
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end
+  
   def check_admin
-     redirect_to 'sessions/new' if is_control? && !signed_in?
+     redirect_to '/signin' if is_control? && !signed_in? && self.controller_name != 'sessions' && self.action_name != 'new'
   end
 end

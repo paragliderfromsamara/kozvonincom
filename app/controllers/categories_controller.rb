@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :check_grants
+  before_action :check_grants, only: [:new, :index, :create, :edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json
@@ -80,5 +80,9 @@ class CategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:ru_name, :com_name, :ru_description, :com_description, :order_number, :is_enable)
+    end
+    
+    def check_grants
+        redirect_to '/404' if !signed_in?
     end
 end

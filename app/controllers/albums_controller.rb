@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_grants, only: [:new, :create, :edit, :update, :destroy, :index, :upload_photos]
   # GET /albums
   # GET /albums.json
   def index
@@ -82,5 +82,8 @@ class AlbumsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
       params.require(:album).permit(:category_id, :name, :get_at, :uploaded_photos, :is_enable, :is_draft, :content)
+    end
+    def check_grants
+        redirect_to '/404' if !signed_in?
     end
 end

@@ -1,6 +1,6 @@
 class PhotoTagsController < ApplicationController
   before_action :set_photo_tag, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_grants
   # GET /photo_tags
   # GET /photo_tags.json
   def index
@@ -73,5 +73,9 @@ class PhotoTagsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_tag_params
       params.require(:photo_tag).permit(:name)
+    end
+    
+    def check_grants
+        redirect_to '/404' if !signed_in?
     end
 end

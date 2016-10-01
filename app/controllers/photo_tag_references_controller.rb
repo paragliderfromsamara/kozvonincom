@@ -1,6 +1,6 @@
 class PhotoTagReferencesController < ApplicationController
   before_action :set_photo_tag_reference, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_grants, only: [:show, :index, :new, :create, :edit, :update, :destroy]
   # GET /photo_tag_references
   # GET /photo_tag_references.json
   def index
@@ -70,5 +70,9 @@ class PhotoTagReferencesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_tag_reference_params
       params.require(:photo_tag_photo).permit(:photo_id, :photo_tag_id)
+    end
+    
+    def check_grants
+        redirect_to '/404' if !signed_in?
     end
 end

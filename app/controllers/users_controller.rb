@@ -67,15 +67,8 @@ class UsersController < ApplicationController
 
   private
     def check_rights
-      act = self.action_name
-      u = User.all.count
-      if (act == 'new' || act == 'create') && (user_type != 'admin' && u != 0)  
-        #redirect_to users_path
-      elsif (act == 'edit' || act == 'update' || act == 'destroy') && (user_type != 'admin' || @user != current_user)
-        redirect_to users_path 
-      else
-        redirect_to root_path if !signed_in? && u != 0 
-      end 
+      u = User.all.size
+      redirect_to '/404' if u != 0 && !signed_in?
     end 
     # Use callbacks to share common setup or constraints between actions.
     def set_user
