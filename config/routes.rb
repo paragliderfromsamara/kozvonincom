@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   get '/index' => 'pages#index'
   get '/about' => 'pages#about'
   get '/switch_locale' => 'pages#switch_locale'
+  get '/please_wait' => 'pages#please_wait'
+  
   root to: "pages#index"
   get '*unmatched_route', to: 'pages#err_404'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

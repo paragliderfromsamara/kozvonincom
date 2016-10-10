@@ -11,6 +11,9 @@ class PagesController < ApplicationController
 	  redirect_to root_path(locale: loc)
   end
 
+  def please_wait
+      render layout: false
+  end
   def err_404
       @title = t(:page_not_found) + "(404)"
       @header = "#{t :page_not_found }"

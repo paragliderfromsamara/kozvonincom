@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   
   before_action :set_locale
   before_action :check_admin
- 
+  
   def set_locale
     I18n.locale = extract_locale_from_tld || I18n.default_locale
   end
@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
   end
   
   def check_admin
-     redirect_to '/signin' if is_control? && !signed_in? && self.controller_name != 'sessions' && self.action_name != 'new'
+      if is_control? && !signed_in? && self.controller_name != 'sessions' && self.action_name != 'new'
+          redirect_to '/signin' 
+      elsif !is_control? && !$is_enabled && self.action_name != 'please_wait'
+          redirect_to '/please_wait' 
+      end
   end
 end
