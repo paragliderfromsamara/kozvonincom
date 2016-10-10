@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   def check_admin
       if is_control? && !signed_in? && self.controller_name != 'sessions' && self.action_name != 'new'
           redirect_to '/signin' 
-      elsif !is_control? && !$is_enabled && self.action_name != 'please_wait'
+      elsif !is_control? && !signed_in? && !$is_enabled && self.action_name != 'please_wait'
           redirect_to '/please_wait' 
       end
   end
