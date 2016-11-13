@@ -62,7 +62,7 @@ module FiltersHelper
 					tabs += "<li class='tabs-title#{' is-active' if (i==1 && params[:panel] == nil) || i == params[:panel].to_i}'><a href='#panel#{i}v'>#{curName.mb_chars.upcase}</a></li>"
 				end
         tags_selected += "<li><span> #{n.name} <a tag-id='#{n.id}'><i class=\"fi-x fi-medium\"></i></a></span></li>" if is_selected
-				tempContent += "<a class = 'filter-select-tag#{" selected" if is_selected}' tag-id=#{n.id}><li><p>#{"<span class = 'badge success'><i class = 'fi-check'></i></span>" if is_selected}#{n.name}</p></li></a>"
+				tempContent += "<a class = 'filter-select-tag#{" selected" if is_selected}' tag-id=#{n.id}><li><p>#{"<span class = 'badge success'><i class = 'fi-check'></i></span>" if is_selected} #{n.name}</p></li></a>"
 				tabsContent += "<div class='tabs-panel#{' is-active' if (i==1 && params[:panel] == nil) || i == params[:panel].to_i}' id='panel#{i}v'><ul id = 'tagsList' data-tabs>#{tempContent}</ul></div>" if n == tags.last
 			end
 		end

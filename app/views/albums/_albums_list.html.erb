@@ -6,7 +6,7 @@
         <div class = 'small-12 medium-6 columns'>
             <%if !a.photos.first.nil?%>
                 <a href = '<%= album_path(a) %>'> 
-                <div class = 'album-box-thumb float-center' style = 'background-image:url(<%=a.photos.first.link.large_sq%>);' title = '<%= a.loc_name(cur_locale)%>'>
+                <div class = 'album-box-thumb float-center' style = 'background-image:url(<%=a.main_photo.link.large_sq%>);' title = '<%= a.loc_name(cur_locale)%>'>
                     <div class = 'black-wr'></div>
                     <div class = 'a-block-caption'>
                         <p class = 'float-center'><%= truncate a.loc_name(cur_locale), length: 13 %></p>

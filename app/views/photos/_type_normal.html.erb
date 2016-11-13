@@ -1,7 +1,7 @@
 <% i = 1 %>
 <% @photos.each do |p| %>
 	<p><span><%= i %>.</span> <%= p.loc_desc(cur_locale) %></p>
-		<%= image_tag p.link.large %>
+		<%= image_tag p.link.large, class: "float-center" %>
 	<% i+=1 %>
     <%=tags_list_on_photo(p).html_safe  %>
 	<br>

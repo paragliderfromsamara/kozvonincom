@@ -3,9 +3,10 @@ class Photo < ApplicationRecord
 	belongs_to :album
 	has_many :photo_tag_photos, dependent: :delete_all
 	has_many :photo_tags, through: :photo_tag_photos
-  has_one :category, through: :album
-  after_destroy :clearUnusedTags
+    has_one :category, through: :album
+    after_destroy :clearUnusedTags
 	after_save :check_tags_presence
+    after_update :update_flags
 	before_save :makeNewFileName, :split_name_and_description_by_locale
   #before_save :makeNewFileName
 	mount_uploader :link, PhotoUploader
@@ -20,6 +21,21 @@ class Photo < ApplicationRecord
     d = self.split_by_locale(self.description)
     self.com_description = d[:com]
     self.ru_description = d[:ru]
+  end
+  
+  def update_flags 
+      if self.is_category_photo == true
+          phs = self.category.photos.where(is_category_photo: true)
+          phs.each do |p|
+              p.update_attribute(:is_category_photo, false) if p.id != self.id 
+          end
+      end
+      if self.is_album_photo == true
+          phs = self.album.photos.where(is_album_photo: true)
+          phs.each do |p|
+              p.update_attribute(:is_album_photo, false) if p.id != self.id 
+          end
+      end
   end
   
   def inScobeTags

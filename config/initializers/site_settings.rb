@@ -5,4 +5,4 @@
 
 #/var/run/redis/redis.sock ubuntu
 #/tmp/redis.sock mac-os
-$is_enabled = false
+$is_enabled = true

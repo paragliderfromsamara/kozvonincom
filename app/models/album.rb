@@ -10,7 +10,14 @@ class Album < ApplicationRecord
 	
 	validates :name, presence: {message: "Поле название не должно быть пустым"}, if: :is_not_draft?
         
-  
+    def main_photo
+        p = self.photos.find_by(is_album_photo: true)
+        if p.nil?
+            return self.photos.first
+        else
+            return p
+        end
+    end
   
   def is_not_draft?
     !self.is_draft

@@ -28,7 +28,6 @@
               </div>
           </div>
          <%= photo_filter %>
-         <%= render "pages/slider" if !@slider_photos.blank? %>
          <%= my_header %> 
     </div>
     <div id = "middle">
@@ -37,7 +36,7 @@
     <div id = 'footerMark'></div>
 	<div id = "footer">
         <div class = 'row'>
-            <div class = 'small-12 columns'>
+            <div class = 'small-6 columns'>
                 <span id = "contacts-title">
                     <%= t(:contacts) %>
                 </span>
@@ -55,7 +54,11 @@
                         </a>
                     </li>
                 </ul>
-                
+            </div>
+            <div class = 'small-6 columns'>
+                <span id = "contacts-title" class = 'float-right' style = "margin-top: 35px;">
+                    <%= t(:roman_kozvonin) %>, <%= Time.now.strftime("%Y") %>
+                </span> 
             </div>
         </div>
 	</div>

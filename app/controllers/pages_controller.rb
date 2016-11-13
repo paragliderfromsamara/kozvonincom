@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-      @slider_photos = Photo.where(is_album_photo: true)
+      @slider_photos = Photo.where(is_category_photo: true)
   end
 
   def about

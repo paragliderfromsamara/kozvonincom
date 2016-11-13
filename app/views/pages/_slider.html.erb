@@ -1,21 +1,23 @@
+
 <% if !@slider_photos.blank? %>
     <%slds = ""%>
     <%buts = ""%>
     <%i=0%>
         <%@slider_photos.each do |p|%>
-            <%slds += "<li class=\"orbit-slide#{" is-active" if i==0}\"><img class=\"orbit-image\" src=\"#{ p.link.large_slider }\"></li>"%>
-            <%buts += "<button #{'class="is-active"' if i==0} data-slide=\"#{i}\"><span class=\"show-for-sr\">Second slide details.</span></button>"%>    
+            <%slds += "<li class=\"orbit-slide#{" is-active" if i==0}\"><img class=\"orbit-image\" data-interchange=\"[#{ p.link.small_slider }, small], [#{ p.link.medium_slider }, medium], [#{ p.link.large_slider }, large]\"><figcaption class=\"orbit-caption\"><a href = '#{category_path(p.category)}'>#{p.category.loc_name(cur_locale)}<a></figcaption></li>"%>
+            <%buts += "<button #{'class="is-active"' if i==0} data-slide=\"#{i}\"><span class=\"show-for-sr\">Second slide details</span></button>"%>    
             
             <%i+=1%>
         <%end%>
-    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-            <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-         <ul class="orbit-container">
-             <%=slds.html_safe%>
-         </ul>
-         <nav class="orbit-bullets">
-             <%=buts.html_safe%>
-         </nav>
+    <div class = 'row'>
+        <div class = 'small-12 columns'>
+        <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit style = 'position: relative; margin-top: 2.5rem;'>
+            <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+             <ul class="orbit-container">
+                 <%=slds.html_safe%>
+             </ul>
+        </div>     
+        </div>
     </div>
 <%end%>

@@ -58,14 +58,14 @@ class PhotoUploader < CarrierWave::Uploader::Base
 	end
   
 	version :large_slider do
-		process :resize_to_fill => [1200, 300]
+		process :resize_to_fill => [1600, 400]
 	end
 	
-	version :medium_slider do
+	version :medium_slider, from_version: :large_slider do
 		process :resize_to_fill => [1000, 250]
 	end
 	
-	version :small_slider do
+	version :small_slider, from_version: :medium_slider do
 		process :resize_to_fill => [640, 160]
 	end
 	

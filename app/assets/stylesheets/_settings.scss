@@ -1,20 +1,23 @@
+
 @import "foundation-sites";
 
 @include foundation-global-styles;
-
-$medium-black: #232323;
+$body-background: $light-gray; 
+$dark-blue: #0a2438;
+$light-gray:#f2f5f7;
+$medium-black:  #232323;
 $thumbnail-border: solid 2px $white;
 ///top-bar settings
 $menu-item-color: $white;
 $menu-item-color-active: $dark-gray;
 $menu-item-background-active:none;
-$topbar-background: $black;
+$topbar-background: $dark-blue;
 $topbar-padding: 0.5rem;
 $topbar-title-spacing: 0;
-$topbar-submenu-background:$black;
+$topbar-submenu-background:$dark-blue;
 $dropdownmenu-arrow-color: $white;
 //$topbar-padding: 0.5rem; 
-
+$header-color: $dark-blue;
 
 .top-bar 
 {
@@ -25,12 +28,16 @@ $dropdownmenu-arrow-color: $white;
 {
     background-color: $black;
     nav{padding-bottom: 10px;}
+    .orbit-caption 
+    {
+        a {color: $white;}
+    }
 }
 ///top-bar settings end
 ///tabs
 $tab-item-padding: 0.7rem 0.7rem;
 $tab-content-padding: 0.5rem 0 0 0;
-$orbit-bullet-margin: 0.4rem;
+//$orbit-bullet-margin: 0.4rem;
 ///tabs end
 ///orbit
 //$orbit-bullet-background: $dark-gray;
