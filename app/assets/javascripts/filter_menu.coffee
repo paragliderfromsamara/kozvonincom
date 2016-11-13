@@ -30,7 +30,7 @@ class FilterMenu
                     @filteringResultRowId = 'filtering-result',
                     @filterResultRow = null,
                     @receivedData = null,
-                    @phLoadStep = 4, #количество подгружаемых фотографий
+                    @phLoadStep = 36, #количество подгружаемых фотографий
                     @firstFilteringWlId = "first-filtering",
                     @firstLoadingMsg = {ru: "Идёт поиск", com: "Searching"},
                     @loadingMsg = {ru: "Загрузка", com: "Loading"},
